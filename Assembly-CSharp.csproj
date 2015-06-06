@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\scene2\moveBck.cs" />
      <Compile Include="Assets\Scripts\scene2\posBackgound.cs" />
      <Compile Include="Assets\Scripts\scene2\touchButtonPlay.cs" />
+     <Compile Include="Assets\Scripts\scene3\movePipes.cs" />
      <Compile Include="Assets\Scripts\scene3\touchAction.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
