@@ -3,7 +3,7 @@ using System.Collections;
 
 public class touchAction : MonoBehaviour {
 	//private Vector3	siz;
-	private int jump=2;
+	private int jump=1;
 
 	// Use this for initialization
 	void Start () {
