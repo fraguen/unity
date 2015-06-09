@@ -3,7 +3,7 @@ using System.Collections;
 
 public class touchAction : MonoBehaviour {
 	//private Vector3	siz;
-	private int jump=1;
+	public float speed = 1f;
 
 	// Use this for initialization
 	void Start () {
@@ -16,11 +16,10 @@ public class touchAction : MonoBehaviour {
 
 	/* Afin d'avoir des saut à chaque fois que l'on appuie sans obligation d'etre dans une nouvelle frame*/ 
 	void FixedUpdate(){
-		if (Input.GetKeyDown ("space")) {
-			print ("space key was pressed : y : "+transform.position.y+" before");
-			transform.position = new Vector3 (transform.position.x, transform.position.y+jump, transform.position.z);
-			
-			print ("space key was pressed : y : "+transform.position.y+" after");
+		if (Input.GetKeyDown (KeyCode.Space) == true) {
+				//print ("Space pressed");
+				Vector2 pulse = new Vector2 (0, speed);
+				gameObject.rigidbody2D.velocity = pulse;
 		}
 	}
 }
