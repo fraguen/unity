@@ -8,7 +8,7 @@ public class collideManagementBird : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+	
 		coinBasDroit = Camera.main.ViewportToWorldPoint(new Vector3(1,0,0));
 	
 	}
@@ -39,11 +39,16 @@ public class collideManagementBird : MonoBehaviour {
 		if (colider.tag == "sol" && !collisionSol) {
 			collisionSol = true;
 		}
+
+		if (colider.tag == "betweenPipes") {
+			ScoreManager.instance.addScore(1);
+			print(ScoreManager.instance.getScore());
+		}
 	}
 
 	void rotationBird(GameObject bird){
 		float zRota = bird.transform.rotation.z - 10;
 		bird.transform.Rotate(0, 0, zRota);
-		print (bird.transform.rotation.z);
+		//print (bird.transform.rotation.z);
 	}
 }

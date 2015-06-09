@@ -10,6 +10,7 @@ TextureImporter:
     21300010: upPipe1
     21300012: backGroundNuit
     21300014: sol
+    21300016: beetweenPipes
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -128,6 +129,16 @@ TextureImporter:
         y: 912
         width: 335
         height: 112
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: beetweenPipes
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 464
+        width: 44
+        height: 44
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

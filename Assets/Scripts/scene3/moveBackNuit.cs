@@ -20,7 +20,10 @@ public class moveBackNuit : MonoBehaviour {
 	
 	void Update()	
 	{	
-		rigidbody2D.velocity = movement;	
+		if(gameObject.tag == "back")
+			rigidbody2D.velocity = movement;	
+		else if(gameObject.tag == "sol")
+			rigidbody2D.velocity = new Vector2(-5f, 0f);
 		
 		//	Si	le	sprite	sort	de	l'écran	à	gauche	
 		//	Recalcul	d'une	nouvelle	posi=on	en	Y	comprise	dans	les	limites	autorisées	de	l'écran
@@ -32,29 +35,29 @@ public class moveBackNuit : MonoBehaviour {
 				GameObject[] backGrounds = GameObject.FindGameObjectsWithTag("back") as GameObject[];
 				foreach (GameObject backGround in backGrounds) {
 					float currPos = backGround.transform.position.x;
-					Debug.Log("currPos : " + currPos);
+					//Debug.Log("currPos : " + currPos);
 					if(currPos > pos){
-						Debug.Log("currPos > pos : pos=" + pos + ", currPos=" + currPos);
+						//Debug.Log("currPos > pos : pos=" + pos + ", currPos=" + currPos);
 						pos = currPos;
 						positionRestartX = currPos+siz.x/2-.6f;
 					}
 				}
 				transform.position	= new Vector3(positionRestartX,transform.position.y,transform.position.z);	
-				Debug.Log("PositionRestart : " + positionRestartX);
+				//Debug.Log("PositionRestart : " + positionRestartX);
 			}
 			else if(gameObject.tag == "sol"){
 				GameObject[] sols = GameObject.FindGameObjectsWithTag("sol") as GameObject[];
 				foreach (GameObject sol in sols) {
 					float currPos = sol.transform.position.x;
-					Debug.Log("currPos : " + currPos);
+					//Debug.Log("currPos : " + currPos);
 					if(currPos > pos){
-						Debug.Log("currPos > pos : pos=" + pos + ", currPos=" + currPos);
+						//Debug.Log("currPos > pos : pos=" + pos + ", currPos=" + currPos);
 						pos = currPos;
-						positionRestartX = currPos+siz.x/2-.6f;
+						positionRestartX = currPos+siz.x/2 -.6f;
 					}
 				}
 				transform.position	= new Vector3(positionRestartX,transform.position.y,transform.position.z);	
-				Debug.Log("PositionRestart : " + positionRestartX);
+				//Debug.Log("PositionRestart : " + positionRestartX);
 			}
 		}	
 	}	

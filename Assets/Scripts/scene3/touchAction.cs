@@ -17,7 +17,7 @@ public class touchAction : MonoBehaviour {
 	/* Afin d'avoir des saut à chaque fois que l'on appuie sans obligation d'etre dans une nouvelle frame*/ 
 	void FixedUpdate(){
 		if (Input.GetKeyDown (KeyCode.Space) == true) {
-				print ("Space pressed");
+				//print ("Space pressed");
 				Vector2 pulse = new Vector2 (0, speed);
 				gameObject.rigidbody2D.velocity = pulse;
 		}
