@@ -4,7 +4,7 @@ using System.Collections;
 public class collideManagementBird : MonoBehaviour {
 
 	Vector3 coinBasDroit;
-	bool collision = false;
+	bool collisionPipe = false, collisionSol = false;
 
 	// Use this for initialization
 	void Start () {
@@ -15,39 +15,30 @@ public class collideManagementBird : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (collision) {
-			GameObject bird = GameObject.FindGameObjectWithTag("bird");
-			if(sortiEcran(bird) == false){
-				rotationBird(bird);
+		if (collisionPipe){
+			if(!collisionSol){
+				rotationBird(gameObject);
 			}
 			else{
-				bird.rigidbody2D.velocity = new Vector2(0, 0);
-				bird.transform.Rotate(0, 0, 0);
-				bird.rigidbody2D.gravityScale = 0;
-				bird.rigidbody2D.mass = 0;
+				rigidbody2D.velocity = new Vector2(0, 0);
+				transform.Rotate(0, 0, 0);
+				rigidbody2D.gravityScale = 0;
+				rigidbody2D.mass = 0;
+				Time.timeScale =  0f;
 			}
 		}
-	
 	}
 
 	void OnTriggerEnter2D(Collider2D colider) {
-		if (colider.tag == "bird") {
+		if (colider.tag == "pipe" && !collisionPipe) {
 			print ("colision!");
-			collision = true;
+			collisionPipe = true;
 			// Detruis le script touchAction 
 			Destroy(GetComponent<touchAction>());
 		}
-	}
-
-	bool sortiEcran(GameObject bird){
-		float sizeY =	bird.GetComponent<SpriteRenderer>().bounds.size.y;
-		float posY = bird.transform.position.y;
-		bool estSorti = false;
-		if(posY - sizeY /2 < coinBasDroit.y){
-			estSorti = true;
+		if (colider.tag == "sol" && !collisionSol) {
+			collisionSol = true;
 		}
-		print (estSorti);
-		return estSorti;
 	}
 
 	void rotationBird(GameObject bird){
