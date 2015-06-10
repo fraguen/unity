@@ -4,6 +4,7 @@ using System.Collections;
 public class ScoreManager : MonoBehaviour {
 
 	private int score;
+	private bool onGameOver = false;
 	private static ScoreManager _instance;
 
 	public static ScoreManager instance{ 
@@ -36,5 +37,13 @@ public class ScoreManager : MonoBehaviour {
 
 	public int getScore(){
 		return score;
+	}
+
+	public void gameOver(bool status){
+		this.onGameOver = status;
+	}
+
+	public bool isOnGameOver(){
+		return this.onGameOver;
 	}
 }
