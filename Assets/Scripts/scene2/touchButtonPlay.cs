@@ -17,9 +17,12 @@ public class touchButtonPlay : MonoBehaviour {
 
 		if(detectButtonPressed ()){
 			Application.LoadLevel(1);
+			if(ScoreManager.instance.getScore() != 0){
+				ScoreManager.instance.resetScore();
+			}
 		}
-
-/*		if (Input.GetMouseButtonDown(0)){
+		
+		/*		if (Input.GetMouseButtonDown(0)){
 			Vector3 pos =  Input.mousePosition;
 			Debug.Log("Mouse pressed " + pos);
 			Ray ray = Camera.main.ScreenPointToRay(pos);
@@ -39,13 +42,18 @@ public class touchButtonPlay : MonoBehaviour {
 			if(p.phase == TouchPhase.Ended){
 				Debug.Log("Appui sur le boutton play!");
 				Application.LoadLevel(1);
+				if(ScoreManager.instance.getScore() != 0){
+					ScoreManager.instance.resetScore();
+				}
 			}
 		}
 		else if (Input.GetMouseButtonDown(0)) {
 			Debug.Log("Appui sur le boutton play!");
 			Application.LoadLevel(1);
-		}
-
+			if(ScoreManager.instance.getScore() != 0){
+				ScoreManager.instance.resetScore();
+			}
+		}		
 	}
 
 	public bool detectButtonPressed(){
@@ -76,6 +84,9 @@ public class touchButtonPlay : MonoBehaviour {
 					}
 				}
 			}
+		}
+		else if(Input.GetKeyDown (KeyCode.Space) == true){
+			pressed = true;
 		}
 		return pressed;
 
