@@ -3,29 +3,35 @@ using System.Collections;
 
 public class collideManagementBird : MonoBehaviour {
 
-	Vector3 coinBasDroit;
-	bool collisionPipe = false, collisionSol = false;
+	Vector3 coinHautDroit;
+	float sizY;
+	bool collisionPipe = false, collisionSol = false, collisionTopScreen = false;
 
 	// Use this for initialization
 	void Start () {
 	
-		coinBasDroit = Camera.main.ViewportToWorldPoint(new Vector3(1,0,0));
+		coinHautDroit = Camera.main.ViewportToWorldPoint(new Vector3(1,1,0));
+		sizY =	gameObject.GetComponent<SpriteRenderer>().bounds.size.y;
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (collisionPipe){
+		if (collisionPipe || collisionTopScreen){
 			if(!collisionSol){
 				rotationBird(gameObject);
 			}
-			else{
-				rigidbody2D.velocity = new Vector2(0, 0);
-				transform.Rotate(0, 0, 0);
-				rigidbody2D.gravityScale = 0;
-				rigidbody2D.mass = 0;
-				Time.timeScale =  0f;
-			}
+		}
+		if(collisionSol){
+			rigidbody2D.velocity = new Vector2(0, 0);
+			transform.Rotate(0, 0, 0);
+			rigidbody2D.gravityScale = 0;
+			rigidbody2D.mass = 0;
+			Time.timeScale =  0f;
+		}
+		if(gameObject.transform.position.y - sizY/2 > coinHautDroit.y ){
+			collisionTopScreen = true;
+			Destroy(GetComponent<touchAction>());
 		}
 	}
 
@@ -41,8 +47,10 @@ public class collideManagementBird : MonoBehaviour {
 		}
 
 		if (colider.tag == "betweenPipes") {
-			ScoreManager.instance.addScore(1);
-			print(ScoreManager.instance.getScore());
+			if(!collisionPipe && !collisionSol && !collisionTopScreen){
+				ScoreManager.instance.addScore(1);
+				print(ScoreManager.instance.getScore());
+			}
 		}
 	}
 
