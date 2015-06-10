@@ -21,5 +21,13 @@ public class touchAction : MonoBehaviour {
 				Vector2 pulse = new Vector2 (0, speed);
 				gameObject.rigidbody2D.velocity = pulse;
 		}
+		else if(Input.touchCount > 0){
+			Touch p = Input.GetTouch(0);
+			if(p.phase == TouchPhase.Ended){
+				Vector2 pulse = new Vector2 (0, speed);
+				gameObject.rigidbody2D.velocity = pulse;
+			}
+		}
+
 	}
 }
