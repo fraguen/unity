@@ -31,6 +31,7 @@ public class ScoreManager : MonoBehaviour {
 
 	public void addScore(int score){
 		this.score += score;
+		GameObject.FindObjectOfType<GUIText> ().text = this.score.ToString();
 	}
 
 	public int getScore(){
