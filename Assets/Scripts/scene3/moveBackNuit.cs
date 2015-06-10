@@ -20,10 +20,15 @@ public class moveBackNuit : MonoBehaviour {
 	
 	void Update()	
 	{	
-		if(gameObject.tag == "back")
-			rigidbody2D.velocity = movement;	
-		else if(gameObject.tag == "sol")
-			rigidbody2D.velocity = new Vector2(-5f, 0f);
+		if(!ScoreManager.instance.isOnGameOver()){
+			if(gameObject.tag == "back")
+				rigidbody2D.velocity = movement;	
+			else if(gameObject.tag == "sol")
+				rigidbody2D.velocity = new Vector2(-5f, 0f);
+		}
+		else{
+			rigidbody2D.velocity = new Vector2(0f, 0f);
+		}
 		
 		//	Si	le	sprite	sort	de	l'écran	à	gauche	
 		//	Recalcul	d'une	nouvelle	posi=on	en	Y	comprise	dans	les	limites	autorisées	de	l'écran

@@ -33,9 +33,17 @@ public class movePipes : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		pipe1Up.rigidbody2D.velocity = mouvement;
-		pipe1Down.rigidbody2D.velocity = mouvement;
-		betweenPipes.rigidbody2D.velocity = mouvement;
+		if(!ScoreManager.instance.isOnGameOver()){
+			pipe1Up.rigidbody2D.velocity = mouvement;
+			pipe1Down.rigidbody2D.velocity = mouvement;
+			betweenPipes.rigidbody2D.velocity = mouvement;
+		}
+		else{
+			mouvement = new Vector2(0f, 0f);
+			pipe1Up.rigidbody2D.velocity = mouvement;
+			pipe1Down.rigidbody2D.velocity = mouvement;
+			betweenPipes.rigidbody2D.velocity = mouvement;
+		}
 		siz.x =	pipe1Up.GetComponent<SpriteRenderer>().bounds.size.x;
 		siz.y =	pipe1Up.GetComponent<SpriteRenderer>().bounds.size.y;
 		if (pipe1Up.transform.position.x < coinBasGauche.x - (siz.x / 2)) {
