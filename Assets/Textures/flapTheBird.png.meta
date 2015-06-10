@@ -11,6 +11,7 @@ TextureImporter:
     21300012: backGroundNuit
     21300014: sol
     21300016: beetweenPipes
+    21300018: gameOver
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -139,6 +140,16 @@ TextureImporter:
         y: 464
         width: 44
         height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: gameOver
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 860
+        width: 200
+        height: 50
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
