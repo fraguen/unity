@@ -13,6 +13,7 @@ TextureImporter:
     21300016: beetweenPipes
     21300018: gameOver
     21300020: tapReplay
+    21300022: getReady
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -161,6 +162,16 @@ TextureImporter:
         y: 744
         width: 114
         height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: getReady
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 851
+        width: 194
+        height: 59
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
