@@ -23,6 +23,8 @@ public class collideManagementBird : MonoBehaviour {
 			}
 		}
 		if(collisionSol){
+			if(GetComponent<touchAction>() != null)
+				Destroy(GetComponent<touchAction>());
 			rigidbody2D.velocity = new Vector2(0, 0);
 			transform.Rotate(0, 0, 0);
 			rigidbody2D.gravityScale = 0;
@@ -67,7 +69,7 @@ public class collideManagementBird : MonoBehaviour {
 	IEnumerator WaitForLoadGameOverScreen () 
 	{
 		yield return new WaitForSeconds(2);
-		Application.LoadLevel(2);
+		Application.LoadLevel(3);
 		ScoreManager.instance.gameOver (false);
 
 	}
