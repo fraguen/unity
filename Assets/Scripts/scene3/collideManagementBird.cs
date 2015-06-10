@@ -27,7 +27,11 @@ public class collideManagementBird : MonoBehaviour {
 			transform.Rotate(0, 0, 0);
 			rigidbody2D.gravityScale = 0;
 			rigidbody2D.mass = 0;
-			Time.timeScale =  0f;
+			ScoreManager.instance.gameOver(true);
+			StartCoroutine(WaitForLoadGameOverScreen());
+
+			//Application.LoadLevel("scene4");
+			//Time.timeScale =  0f;
 		}
 		if(gameObject.transform.position.y - sizY/2 > coinHautDroit.y ){
 			collisionTopScreen = true;
@@ -58,5 +62,13 @@ public class collideManagementBird : MonoBehaviour {
 		float zRota = bird.transform.rotation.z - 10;
 		bird.transform.Rotate(0, 0, zRota);
 		//print (bird.transform.rotation.z);
+	}
+
+	IEnumerator WaitForLoadGameOverScreen () 
+	{
+		yield return new WaitForSeconds(2);
+		Application.LoadLevel(2);
+		ScoreManager.instance.gameOver (false);
+
 	}
 }
