@@ -46,17 +46,20 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\scene2.5\getReady.cs" />
      <Compile Include="Assets\Scripts\scene2\ScoreManager.cs" />
      <Compile Include="Assets\Scripts\scene2\getScreenSize.cs" />
      <Compile Include="Assets\Scripts\scene2\moveBck.cs" />
      <Compile Include="Assets\Scripts\scene2\posBackgound.cs" />
      <Compile Include="Assets\Scripts\scene2\touchButtonPlay.cs" />
      <Compile Include="Assets\Scripts\scene3\collideManagementBird.cs" />
+     <Compile Include="Assets\Scripts\scene3\deleteStartingBack.cs" />
      <Compile Include="Assets\Scripts\scene3\moveBackNuit.cs" />
      <Compile Include="Assets\Scripts\scene3\movePipes.cs" />
      <Compile Include="Assets\Scripts\scene3\posBackNuit.cs" />
      <Compile Include="Assets\Scripts\scene3\touchAction.cs" />
      <Compile Include="Assets\Scripts\scene4\displayScore.cs" />
+     <Compile Include="Assets\Scripts\scene4\replay.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
