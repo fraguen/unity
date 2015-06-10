@@ -43,6 +43,10 @@ public class ScoreManager : MonoBehaviour {
 		this.onGameOver = status;
 	}
 
+	public void resetScore(){
+		this.score = 0;
+	}
+
 	public bool isOnGameOver(){
 		return this.onGameOver;
 	}
