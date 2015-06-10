@@ -9,7 +9,8 @@ public class ScoreManager : MonoBehaviour {
 	public static ScoreManager instance{ 
 		get{
 			if(_instance == null){
-				_instance = GameObject.FindObjectOfType<ScoreManager>();
+				GameObject manager= new GameObject("[ScoreManager]");
+				_instance = manager.AddComponent<ScoreManager>();
 				DontDestroyOnLoad(_instance.gameObject);
 			}
 			return _instance;
