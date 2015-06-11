@@ -6,12 +6,17 @@ public class collideManagementBird : MonoBehaviour {
 	Vector3 coinHautDroit;
 	float sizY;
 	bool collisionPipe = false, collisionSol = false, collisionTopScreen = false;
+	GUIText GUIscore;
+	string score;
 
 	// Use this for initialization
 	void Start () {
 	
 		coinHautDroit = Camera.main.ViewportToWorldPoint(new Vector3(1,1,0));
 		sizY =	gameObject.GetComponent<SpriteRenderer>().bounds.size.y;
+		GUIscore = GameObject.FindObjectOfType<GUIText> ();
+		score = ScoreManager.instance.getScore ().ToString ();
+		GUIscore.text = score;
 	
 	}
 	
@@ -56,6 +61,8 @@ public class collideManagementBird : MonoBehaviour {
 			if(!collisionPipe && !collisionSol && !collisionTopScreen){
 				ScoreManager.instance.addScore(1);
 				print(ScoreManager.instance.getScore());
+				score = ScoreManager.instance.getScore().ToString();
+				GUIscore.text = score;
 			}
 		}
 	}
