@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\scene2.5\getReady.cs" />
+     <Compile Include="Assets\Scripts\scene2\AudioManager.cs" />
      <Compile Include="Assets\Scripts\scene2\ScoreManager.cs" />
      <Compile Include="Assets\Scripts\scene2\getScreenSize.cs" />
      <Compile Include="Assets\Scripts\scene2\moveBck.cs" />
