@@ -9,6 +9,8 @@ public class displayScore : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		displayScoreOnScreen ();
+		AudioSource audio = GameObject.FindGameObjectWithTag ("gameOver").GetComponent<AudioSource> ();
+		AudioManager.instance.playLoop(audio);
 	
 	}
 	
