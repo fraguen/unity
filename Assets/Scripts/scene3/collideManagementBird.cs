@@ -48,6 +48,8 @@ public class collideManagementBird : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D colider) {
 		if (colider.tag == "pipe" && !collisionPipe) {
+			AudioSource audio = GameObject.FindGameObjectWithTag("hit").GetComponent<AudioSource>();
+			AudioManager.instance.playSong(audio);
 			print ("colision!");
 			collisionPipe = true;
 			// Detruis le script touchAction 
@@ -55,6 +57,8 @@ public class collideManagementBird : MonoBehaviour {
 		}
 		if (colider.tag == "sol" && !collisionSol) {
 			collisionSol = true;
+			AudioSource audio = GameObject.FindGameObjectWithTag("die").GetComponent<AudioSource>();
+			AudioManager.instance.playSong(audio);
 		}
 
 		if (colider.tag == "betweenPipes") {

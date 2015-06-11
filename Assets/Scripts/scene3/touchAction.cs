@@ -7,7 +7,8 @@ public class touchAction : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		AudioSource theme = GameObject.FindGameObjectWithTag("theme").GetComponent<AudioSource> ();
+		AudioManager.instance.playTheme(theme);	
 	}
 	
 	// Update is called once per frame
@@ -17,9 +18,12 @@ public class touchAction : MonoBehaviour {
 	/* Afin d'avoir des saut à chaque fois que l'on appuie sans obligation d'etre dans une nouvelle frame*/ 
 	void FixedUpdate(){
 		if (Input.GetKeyDown (KeyCode.Space) == true) {
-				//print ("Space pressed");
-				Vector2 pulse = new Vector2 (0, speed);
-				gameObject.rigidbody2D.velocity = pulse;
+			//print ("Space pressed");
+			Vector2 pulse = new Vector2 (0, speed);
+			gameObject.rigidbody2D.velocity = pulse;
+			AudioSource audio = GameObject.FindGameObjectWithTag("fly").GetComponent<AudioSource>();
+			AudioManager.instance.playSong(audio);
+
 		}
 		else if(Input.touchCount > 0){
 			Touch p = Input.GetTouch(0);
